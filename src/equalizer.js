@@ -6,6 +6,9 @@ export default class Equalizer extends Component {
     super()
     this.handleResize          = debounce(this.handleResize.bind(this), 50)
     this.updateChildrenHeights = this.updateChildrenHeights.bind(this)
+    if (this.props.updateTriggerFunction && typeof this.props.updateTriggerFunction === 'function') {
+      this.props.updateTriggerFunction(this.updateChildrenheights)
+    }
   }
 
   componentDidMount() {
